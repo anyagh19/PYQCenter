@@ -13,7 +13,17 @@ const Year = () => {
           "684edd3600217892a2a1",
           "684edd4800385a6358a8"
         );
-        const filtered = documents.filter((doc) => doc.year === year);
+
+        console.log("Fetched documents:", documents);
+        console.log("Year param:", year);
+
+        const filtered = documents.filter(
+          (doc) =>
+            doc.year?.toLowerCase().trim() === year.toLowerCase().trim()
+        );
+
+        console.log("Filtered for year:", filtered);
+
         const uniqueDepts = [...new Set(filtered.map((doc) => doc.department))];
         setDepartments(uniqueDepts);
       } catch (error) {

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { databases, storage } from "../appwrite/config";
-
-const BUCKET_ID = "684edcde0007daabf07c";
+import { databases } from "../appwrite/config";
 
 const Subject = () => {
   const { year, department, subject } = useParams();
   const [files, setFiles] = useState([]);
+  const [pendingDownload, setPendingDownload] = useState(false);
 
   useEffect(() => {
     const fetchFiles = async () => {
@@ -23,22 +22,7 @@ const Subject = () => {
             doc.subject === subject
         );
 
-        const filesWithURLs = await Promise.all(
-          subjectFiles.map(async (doc) => {
-            try {
-              const downloadUrl = await storage.getFileDownload(BUCKET_ID, doc.fileId);
-              return {
-                ...doc,
-                downloadUrl: downloadUrl.href,
-              };
-            } catch (e) {
-              console.warn("Error loading file", e);
-              return null;
-            }
-          })
-        );
-
-        setFiles(filesWithURLs.filter(Boolean));
+        setFiles(subjectFiles);
       } catch (error) {
         console.error("Failed to fetch files:", error);
       }
@@ -46,6 +30,19 @@ const Subject = () => {
 
     fetchFiles();
   }, [year, department, subject]);
+
+  const handlePayClick = (file) => {
+    // Save file info for download after payment
+    localStorage.setItem(
+      "fileToDownload",
+      JSON.stringify({ fileId: file.fileId, name: file.name })
+    );
+
+    setPendingDownload(true);
+
+    // Open Razorpay Payment Link
+    window.open("https://rzp.io/rzp/ETNKOs7k", "_blank");
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-10 flex flex-col items-center">
@@ -71,16 +68,25 @@ const Subject = () => {
                 {file.name}
               </div>
 
-              <a
-                href="https://rzp.io/rzp/ETNKOs7k"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => handlePayClick(file)}
                 className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
               >
                 ₹12 - Pay & Download
-              </a>
+              </button>
             </div>
           ))}
+        </div>
+      )}
+
+      {pendingDownload && (
+        <div className="mt-10">
+          <a
+            href="/download/manual"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+          >
+            ✅ I Paid – Download Now
+          </a>
         </div>
       )}
     </div>

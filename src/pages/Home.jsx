@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const years = [
-  { label: "FE", color: "bg-blue-500" },
-  { label: "SE", color: "bg-green-500" },
-  { label: "TE", color: "bg-yellow-500" },
-  { label: "BE", color: "bg-pink-500" },
+  { year: "FE", label: "First Year Engineering", color: "bg-blue-500" },
+  { year: "SE", label: "Second Year Engineering", color: "bg-green-500" },
+  { year: "TE", label: "Third Year Engineering", color: "bg-yellow-500" },
+  { year: "BE", label: "Fourth Year Engineering", color: "bg-pink-500" },
 ];
 
 const Home = () => (
@@ -32,8 +32,8 @@ const Home = () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl">
       {years.map((year) => (
         <Link
-          key={year.label}
-          to={`/year/${year.label}`}
+          key={year.year}
+          to={`/year/${year.year}`}
           className={`block rounded-xl shadow-md text-white text-center text-xl font-semibold py-12 transition-transform duration-300 hover:scale-105 ${year.color}`}
         >
           {year.label}

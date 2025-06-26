@@ -6,6 +6,9 @@ import Home from "./pages/Home";
 import Year from "./pages/Year";
 import Department from "./pages/Department";
 import Subject from "./pages/Subject";
+import DownloadManual from "./components/DownloadManual";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
           <Route path="/year/:year" element={<Year />} />
           <Route path="/year/:year/:department" element={<Department />} />
           <Route path="/year/:year/:department/:subject" element={<Subject />} />
+          <Route path="/download/manual" element={<DownloadManual />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
       <Footer />
