@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="bg-gray-800 text-white px-6 py-4 shadow-md">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
-        <h1 className="text-2xl font-bold tracking-wide">📚 PYQ Explorer</h1>
+        <h1 className="text-2xl font-bold tracking-wide">📚 PYQCenter</h1>
         <nav className="flex space-x-6">
           <Link to="/" className="hover:text-yellow-400 transition">Home</Link>
           <Link to="/contact" className="hover:text-yellow-400 transition">Contact Us</Link>

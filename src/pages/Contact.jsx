@@ -99,7 +99,7 @@ const Contact = () => {
 
         {/* Additional Contact Info */}
         <div className="mt-10 text-center text-gray-600 text-sm">
-          <p className="mb-1">📧 Email: <a href="mailto:pyqexplorer@gmail.com" className="text-blue-600">pyqexplorer@gmail.com</a></p>
+          <p className="mb-1">📧 Email: <a href="mailto:pyqexplorer@gmail.com" className="text-blue-600">pyqcenter@gmail.com</a></p>
           <p>📱 Phone / WhatsApp: <a href="tel:+917558417655" className="text-blue-600">+91 7558417655</a></p>
         </div>
       </div>

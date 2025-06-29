@@ -31,17 +31,50 @@ const Subject = () => {
     fetchFiles();
   }, [year, department, subject]);
 
-  const handlePayClick = (file) => {
-    // Save file info for download after payment
-    localStorage.setItem(
-      "fileToDownload",
-      JSON.stringify({ fileId: file.fileId, name: file.name })
-    );
+  const loadRazorpayScript = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
 
-    setPendingDownload(true);
+  const handlePayClick = async (file) => {
+    const res = await loadRazorpayScript();
+    if (!res) {
+      alert("Failed to load Razorpay SDK");
+      return;
+    }
 
-    // Open Razorpay Payment Link
-    window.open("https://rzp.io/rzp/ETNKOs7k", "_blank");
+    const options = {
+      key: "", // Replace with your real Razorpay Key ID
+      amount: 1200, // in paise = ₹12
+      currency: "INR",
+      name: "Solved PYQ Store",
+      description: `Download for ${file.name}`,
+      image: "https://your-logo-url.com/logo.png", // Optional
+      handler: function (response) {
+        // Save file info to allow download
+        localStorage.setItem(
+          "fileToDownload",
+          JSON.stringify({ fileId: file.fileId, name: file.name })
+        );
+        setPendingDownload(true);
+        alert("✅ Payment Successful!");
+      },
+      prefill: {
+        name: "Student",
+        email: "student@example.com",
+      },
+      theme: {
+        color: "#22c55e",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
   };
 
   return (
