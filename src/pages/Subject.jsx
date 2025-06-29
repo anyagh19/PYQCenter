@@ -50,7 +50,7 @@ const Subject = () => {
 
     const options = {
       key: "", // Replace with your real Razorpay Key ID
-      amount: 1200, // in paise = ₹12
+      amount: 1500, // in paise = ₹12
       currency: "INR",
       name: "Solved PYQ Store",
       description: `Download for ${file.name}`,
@@ -84,7 +84,7 @@ const Subject = () => {
           📄 Files for {subject} ({department}, {year})
         </h2>
         <p className="text-gray-600 mt-2">
-          Pay ₹12 to download the solved PYQs.
+          Pay ₹15 to download the solved PYQs.
         </p>
       </div>
 
@@ -105,7 +105,7 @@ const Subject = () => {
                 onClick={() => handlePayClick(file)}
                 className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
               >
-                ₹12 - Pay & Download
+                ₹15 - Pay & Download
               </button>
             </div>
           ))}
