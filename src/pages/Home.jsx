@@ -17,9 +17,9 @@ const Home = () => (
         alt="Books Illustration"
         className="w-32 h-32 mx-auto mb-6"
       />
-      <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to PYQ Explorer 🎓</h1>
+      <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to PYQ Center 🎓</h1>
       <p className="text-gray-600 text-lg leading-relaxed">
-        Struggling with exam preparation? No worries! <strong>PYQ Explorer</strong> provides <strong>organized and solved previous year question papers</strong> for all engineering years.
+        Struggling with exam preparation? No worries! <strong>PYQ Center</strong> provides <strong>organized and solved previous year question papers</strong> for all engineering years.
         Get access to year-wise, subject-wise PDFs that help you understand the exam pattern and practice smart.
       </p>
       <p className="text-gray-500 mt-4 text-md">

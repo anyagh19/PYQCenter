@@ -9,7 +9,7 @@ const Footer = () => {
         
         {/* Brand & Tagline */}
         <div>
-          <h3 className="text-2xl font-bold text-white mb-3">PYQ Explorer 🎓</h3>
+          <h3 className="text-2xl font-bold text-white mb-3">PYQ Center 🎓</h3>
           <p className="text-gray-400 text-sm leading-relaxed">
             Empowering students with organized and solved previous year papers to make exam preparation easier and more effective.
           </p>

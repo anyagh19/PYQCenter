@@ -3,11 +3,11 @@ import React from "react";
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-50 px-6 py-16 flex flex-col items-center text-center">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6">About PYQ Explorer 📘</h1>
+      <h1 className="text-4xl font-bold text-gray-800 mb-6">About PYQ Center 📘</h1>
 
       <div className="max-w-3xl text-gray-700 text-lg leading-relaxed">
         <p className="mb-4">
-          <strong>PYQ Explorer</strong> is a platform dedicated to helping university students prepare
+          <strong>PYQ Center</strong> is a platform dedicated to helping university students prepare
           more effectively by providing easy access to <strong>organized, solved previous year question papers (PYQs)</strong>.
         </p>
 
@@ -22,13 +22,13 @@ const About = () => {
         </p>
 
         <p className="mb-4">
-          Built with ❤️ by <strong>Aniket Markad</strong>, this tool empowers students across all engineering branches
+           This tool empowers students across all engineering branches
           to succeed and score better with less hassle.
         </p>
       </div>
 
       <div className="mt-8 text-gray-600 text-sm">
-        📍 Based in India | ✉️ Contact: pyqexplorer@gmail.com
+        📍 Based in India | ✉️ Contact: pyqcenter@gmail.com
       </div>
     </div>
   );
